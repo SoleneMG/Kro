@@ -9,14 +9,18 @@ package exo2;
 public class Exercice2 {
     private final String nom;
     private String prenom;
-    String age;
+    int age;
     static String pays;
 
-    Exercice2(String nom){
+    public Exercice2(String nom){
         this.nom = nom;
     }
 
-    void afficher(){
+    public void setAge(int age){
+        this.age = age;
+    }
+
+    public void afficher(){
         System.out.println("Coucou, je suis "+nom+" "+prenom+", j'ai "+age+" ans et j'habite en "+pays);
     }
 }
