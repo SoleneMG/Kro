@@ -9,15 +9,15 @@ package exo2;
 public class Exercice2 {
     private final String nom;
     private String prenom;
-    int age;
-    static String pays;
+    public int age;
+    public static String pays;
 
     public Exercice2(String nom){
         this.nom = nom;
     }
 
-    public void setAge(int age){
-        this.age = age;
+    public void setPrenom(String prenom){
+        this.prenom = prenom;
     }
 
     public void afficher(){
