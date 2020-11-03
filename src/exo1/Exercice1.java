@@ -10,7 +10,19 @@ package exo1;
 
  */
 public class Exercice1 {
-    static void start(){
+    private String lastName;
+    static String firstName = "Solène";
+
+    static void start() {
 
     }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public static void printFirstNameAndLastName(String setLastName) {
+        System.out.println("Je m'appelle " + firstName + " " +setLastName);
+    }
 }
+
