@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int exerciseToLaunch = 3;
+        int exerciseToLaunch = 4;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch-1).run();
     }

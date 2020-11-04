@@ -11,6 +11,10 @@ package exo4;
 public class Exercise4 implements Runnable{
     @Override
     public void run() {
-
+    House house1 = new House(50);
+    House house2 = new House(120);
+    house1.displayArea();
+    house2.displayArea();
+    house1.displaynumberOfHouse();
     }
 }
