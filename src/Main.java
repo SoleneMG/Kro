@@ -1,27 +1,22 @@
-import exo2.Exercice2;
+import exo1.Exercise1;
+import exo2.Exercise2;
+import exo3.Exercise3;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
-
-
     public static void main(String[] args) {
-       /* HelloWorld HelloWorld = new HelloWorld("Rémy");
-        HelloWorld.printHelloWorld();
+        int exerciseToLaunch = 2;
+        List<Runnable> exercises = getExercises();
+        exercises.get(exerciseToLaunch-1).run();
+    }
 
-        Exercice1 identity = new Exercice1();
-        Exercice1.printFirstNameAndLastName("Krognole");*/
-
-        Exercice2 identitySolene = new Exercice2("Krognole");
-        identitySolene.age = 31;
-        identitySolene.setPrenom("Solène");
-        Exercice2.pays = "Choupicardie";
-        identitySolene.afficher();
-
-        Exercice2 identityRemy = new Exercice2("Choup");
-        identityRemy.age = 30;
-        identityRemy.setPrenom("Rémy");
-
-        identityRemy.afficher();
-
-
+    private static List<Runnable> getExercises() {
+        return Arrays.asList(
+                new Exercise1(),
+                new Exercise2(),
+                new Exercise3()
+        );
     }
 }

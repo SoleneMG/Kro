@@ -9,12 +9,15 @@ package exo1;
 5 - appeler afficherNomPrenom depuis main et faire en sorte que Solène Krognole s'affiche
 
  */
-public class Exercice1 {
+public class Exercise1 implements Runnable {
     private String lastName;
     static String firstName = "Solène";
 
-    static void start() {
-
+    @Override
+    public void run() {
+        Exercise1 identity = new Exercise1();
+        identity.setLastName("Solène");
+        Exercise1.printFirstNameAndLastName("Krognole");
     }
 
     public void setLastName(String lastName) {
