@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int exerciseToLaunch = 2;
+        int exerciseToLaunch = 3;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch-1).run();
     }

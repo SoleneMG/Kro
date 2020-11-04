@@ -13,30 +13,16 @@ public final class Exercise3 implements Runnable{
     @Override
     public void run() {
         //todo code here
+        Person beurk = new Person("Beurk");
+        beurk.display();
+        Person ploup = new Person("Ploup");
+        ploup.display();
+        Person bibou = new Person("Bibou");
+        bibou.display();
     }
 }
 
-final class Person extends AbstractPerson{
-    public Person(String name) {
-        super(name);
-    }
 
-    @Override
-    protected int getCount() {
-        return 0;
-    }
-}
 
-abstract class AbstractPerson {
-    private final String name;
 
-    AbstractPerson(String name){
-        this.name = name;
-    }
 
-    abstract protected int getCount();
-
-    public final void display(){
-        System.out.println("Coucou je suis l'affichage "+name+" n° "+getCount());
-    }
-}
