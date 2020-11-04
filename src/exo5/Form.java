@@ -1,12 +1,12 @@
 package exo5;
 
-public class Form {
-    public static int summerArea;
-    public Form(){}
+public abstract class Form {
+    int area;
 
-    public void displaySummerArea(){
-        System.out.println("The sum of these forms is "+ summerArea +" m2.");
-
-
+    public Form() {
+        this.area = getArea();
     }
+
+    public abstract int getArea();
+
 }

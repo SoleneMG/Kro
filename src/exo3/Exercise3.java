@@ -9,7 +9,7 @@ on ne peut pas créer d'autres méthodes
 
  */
 
-public final class Exercise3 implements Runnable{
+public final class Exercise3 implements Runnable {
     @Override
     public void run() {
         //todo code here

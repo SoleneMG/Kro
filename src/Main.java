@@ -9,9 +9,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int exerciseToLaunch = 5;
+        int exerciseToLaunch = 4;
         List<Runnable> exercises = getExercises();
-        exercises.get(exerciseToLaunch-1).run();
+        exercises.get(exerciseToLaunch - 1).run();
     }
 
     private static List<Runnable> getExercises() {

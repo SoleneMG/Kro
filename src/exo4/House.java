@@ -1,14 +1,14 @@
 package exo4;
 
-public class House extends Town {
+public class House {
     final private int area;
 
-    public House(int area){
+    public House(int area) {
         this.area = area;
-        numberOfHouse++;
+        Town.numberOfHouse++;
     }
 
-    public void displayArea(){
-        System.out.println("This house has " +area +"m2.");
+    public void displayArea() {
+        System.out.println("This house has " + area + "m2.");
     }
 }

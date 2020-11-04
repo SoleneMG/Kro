@@ -25,7 +25,7 @@ public class Exercise1 implements Runnable {
     }
 
     public static void printFirstNameAndLastName(String setLastName) {
-        System.out.println("Je m'appelle " + firstName + " " +setLastName);
+        System.out.println("Je m'appelle " + firstName + " " + setLastName);
     }
 }
 

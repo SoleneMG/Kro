@@ -8,13 +8,15 @@ package exo4;
  * Dans main, afficher les m2 de deux maisons
  * Dans la console, afficher "Le nombre de maisons de la ville est de ..."
  */
-public class Exercise4 implements Runnable{
+public class Exercise4 implements Runnable {
     @Override
     public void run() {
-    House house1 = new House(50);
-    House house2 = new House(120);
-    house1.displayArea();
-    house2.displayArea();
-    house1.displaynumberOfHouse();
+        Town town1 = new Town();
+        House house1 = new House(50);
+        House house2 = new House(120);
+        house1.displayArea();
+        house2.displayArea();
+        town1.displaynumberOfHouse();
+
     }
 }

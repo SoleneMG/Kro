@@ -6,7 +6,7 @@ package exo2;
 "Coucou je suis Solène Krognole, j'ai 31 ans et j'habite en France"
 "Coucou je suis Rémy Choup, j'ai 30 ans et j'habite en Choupicardie"
  */
-public class Exercise2 implements Runnable{
+public class Exercise2 implements Runnable {
     @Override
     public void run() {
         Identity identitySolene = new Identity("Krognole");
@@ -29,15 +29,15 @@ class Identity {
     public int age;
     public static String pays;
 
-    public Identity(String nom){
+    public Identity(String nom) {
         this.nom = nom;
     }
 
-    public void setPrenom(String prenom){
+    public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
 
-    public void afficher(){
-        System.out.println("Coucou, je suis "+nom+" "+prenom+", j'ai "+age+" ans et j'habite en "+pays);
+    public void afficher() {
+        System.out.println("Coucou, je suis " + nom + " " + prenom + ", j'ai " + age + " ans et j'habite en " + pays);
     }
 }
