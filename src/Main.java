@@ -1,6 +1,8 @@
 import exo1.Exercise1;
 import exo2.Exercise2;
 import exo3.Exercise3;
+import exo4.Exercise4;
+import exo5.Exercise5;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +18,9 @@ public class Main {
         return Arrays.asList(
                 new Exercise1(),
                 new Exercise2(),
-                new Exercise3()
+                new Exercise3(),
+                new Exercise4(),
+                new Exercise5()
         );
     }
 }
