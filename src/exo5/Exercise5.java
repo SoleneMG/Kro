@@ -11,5 +11,9 @@ public class Exercise5 implements Runnable{
     @Override
     public void run() {
 
+        Rectangle rectangle1 = new Rectangle(10,5);
+        Rectangle rectangle2 = new Rectangle(30,10);
+        Form.summerArea = rectangle1.computeArea()* rectangle2.computeArea();
+        rectangle1.displaySummerArea();
     }
 }
