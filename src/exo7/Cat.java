@@ -6,4 +6,8 @@ public class Cat {
     public Cat(String name) {
         this.name = name;
     }
+
+    public String getName(){
+        return name;
+    }
 }

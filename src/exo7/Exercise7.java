@@ -11,13 +11,9 @@ public class Exercise7 implements Runnable {
     @Override
     public void run() {
 
-        Person solene = new Person("Solène", 0, 1);
+        Cat cat = new Cat("Miaou");
+        Person solene = new Person("Solène", cat);
         solene.describeYourSelf();
 
-        Person remy = new Person("Rémy", 1, 1);
-        remy.describeYourSelf();
-
-        Person orianne = new Person("Orianne", 0,2);
-        orianne.describeYourSelf();
     }
 }

@@ -1,4 +1,5 @@
 package exo8;
+import java.util.Scanner;
 
 /**
  * Créer une classe Baby qui a un nom
@@ -11,9 +12,17 @@ package exo8;
 public class Exercise8 implements Runnable {
     @Override
     public void run() {
-
-        Baby baby2 = new Baby();
+        Baby baby2 = new Baby(returnName());
         baby2.displayName();
+    }
 
+    public String returnName(){
+        String name;
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Veuillez saisir un nom :");
+        name = scan.nextLine();
+        scan.close();
+        return name;
     }
 }
