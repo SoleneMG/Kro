@@ -12,5 +12,8 @@ public class Exercise8 implements Runnable {
     @Override
     public void run() {
 
+        Baby baby2 = new Baby();
+        baby2.displayName();
+
     }
 }
