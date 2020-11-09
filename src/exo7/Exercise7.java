@@ -15,5 +15,12 @@ public class Exercise7 implements Runnable {
         Person solene = new Person("Solène", cat);
         solene.describeYourSelf();
 
+        Dog dog = new Dog("Ouaf");
+        Person remy = new Person("Rémy", dog);
+        remy.describeYourSelf();
+
+        Person orianne = new Person("Orianne", dog, cat);
+        orianne.describeYourSelf();
+
     }
 }
