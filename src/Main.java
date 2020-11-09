@@ -6,6 +6,7 @@ import exo5.Exercise5;
 import exo6.Exercise6;
 import exo7.Exercise7;
 import exo8.Exercise8;
+import exo9.Exercise9;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +27,8 @@ public class Main {
                 new Exercise5(),
                 new Exercise6(),
                 new Exercise7(),
-                new Exercise8()
+                new Exercise8(),
+                new Exercise9()
                 );
     }
 }
