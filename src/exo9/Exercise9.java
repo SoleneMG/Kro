@@ -1,7 +1,5 @@
 package exo9;
 
-import java.util.Scanner;
-
 /**
  * Ecrire un krogramme qui demande combien il y a de personnes
  * pour chaque personne, demander le nom prénom age
@@ -19,41 +17,31 @@ public class Exercise9 implements Runnable {
         int age;
         String firstname;
         String lastname;
-        Scanner sc = new Scanner(System.in);
+        MyScanner scanner = new MyScanner(System.in);
 
-        System.out.println("Combien y a-t-il de personnes ?");
-        number = sc.nextInt();
+        number = scanner.returnInt("Combien y a-t-il de personnes?");
         Person[] board = new Person[number];
 
-        for (i=0; i < number; i++) {
-
-            System.out.println("Personne n°" + ++i + " ,veuillez indiquer dans l'ordre votre âge, votre prénom et votre nom svp :");
-            System.out.println("Votre âge :");
-            age = sc.nextInt();
-            sc.nextLine();
-            System.out.println("Votre prénom :");
-            firstname = sc.nextLine();
-            System.out.println("Votre nom :");
-            lastname = sc.nextLine();
+        for (i = 0; i < number; i++) {
+            age = scanner.returnInt("Personne n°" + ++i + ", veuillez indiquez votre âge :");
+            firstname = scanner.returnString("Veuillez indiquez votre prénom :");
+            lastname = scanner.returnString("Veuillez indiquez votre nom :");
             --i;
             board[i] = new Person(age, firstname, lastname);
         }
-        sc.close();
-        calculateAgeOfTheGroup(board);
+        scanner.close();
+        calculateAgeOfTheGroup(board, number);
     }
 
-    public void calculateAgeOfTheGroup(Person[] board) {
+    public void calculateAgeOfTheGroup(Person[] board, int number) {
         int numberOfPersonOver50years = 0;
-        int numberOfPersonUnder50years = 0;
 
         for (Person person : board) {
 
             if (person.age >= 50) {
                 numberOfPersonOver50years++;
-            } else {
-                numberOfPersonUnder50years++;
             }
         }
-        System.out.println("Il y a " + numberOfPersonOver50years + " personnes de plus de 50 ans et " + numberOfPersonUnder50years + " de moins de 50 ans.");
+        System.out.println("Il y a " + numberOfPersonOver50years + " personnes de plus de 50 ans et " + (number - numberOfPersonOver50years) + " de moins de 50 ans.");
     }
 }

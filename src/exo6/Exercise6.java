@@ -14,7 +14,7 @@ package exo6;
 public class Exercise6 implements Runnable {
     @Override
     public void run() {
-        Person solene = new Person("Krognole","marrons",1.72,"Solène", "français","blanche");
+        Person solene = new Person("Krognole", "marrons", 1.72, "Solène", "français", "blanche");
         solene.describeYourSelf();
     }
 }

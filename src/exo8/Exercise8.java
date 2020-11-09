@@ -1,4 +1,5 @@
 package exo8;
+
 import java.util.Scanner;
 
 /**
@@ -7,7 +8,6 @@ import java.util.Scanner;
  * Dans run créer un Baby et assigner la valeur du nom de la méthode au constructeur de Baby
  * Faire une méthode dans baby "displayName"
  * appeler cette méthode dans run
- *
  */
 public class Exercise8 implements Runnable {
     @Override
@@ -16,7 +16,7 @@ public class Exercise8 implements Runnable {
         baby2.displayName();
     }
 
-    public String returnName(){
+    public String returnName() {
         String name;
 
         Scanner scan = new Scanner(System.in);

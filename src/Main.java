@@ -29,6 +29,6 @@ public class Main {
                 new Exercise7(),
                 new Exercise8(),
                 new Exercise9()
-                );
+        );
     }
 }

@@ -8,7 +8,7 @@ public class HelloWorld {
         s1 = "c";
 
         System.out.println("s1 = "+s1);
-        System.out.println("s2 = "+s2);*/
+        System.out.println("s2 = "+s2);
 
         Person person1 = new Person();
         person1.nom = "Nom1";
@@ -23,15 +23,15 @@ public class HelloWorld {
 
     }
 
-    static class Person{
+    static class Person {
         public String nom;
         public String prenom;
 
-        public Person clone() {
-            Person personToClone =  new Person();
+        public Person clone(Person person){
+            Person personToClone = new Person();
             personToClone.nom = this.nom;
             personToClone.prenom = this.prenom;
             return personToClone;
-        }
+        }*/
     }
 }
