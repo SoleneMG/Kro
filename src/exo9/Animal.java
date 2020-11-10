@@ -1,5 +1,9 @@
 package exo9;
 
-public class Animal {
+public abstract class Animal {
+    final String name;
 
+    public Animal(String name) {
+        this.name = name;
+    }
 }

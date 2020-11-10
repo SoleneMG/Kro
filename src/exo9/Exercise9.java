@@ -4,18 +4,20 @@ package exo9;
  * Ecrire un krogramme qui demande combien il y a de personnes
  * pour chaque personne, demander le nom prénom age
  * afficher il y a X personnes de moins de 50 ans et X de plus de 50 ans
- * *pour chaques personnes enregistrées, tu demandes en plus si ils ont un animal chat ou chien (avec nom). Ils ne peuvent avoir qu'un animal
+ * pour chaques personnes enregistrées, tu demandes en plus si ils ont un animal chat ou chien (avec nom). Ils ne peuvent avoir qu'un animal
+ * le programme demande un nom de personne si cette personne est dans la liste il affiche son nom et son animal si i y en a un
  */
 public class Exercise9 implements Runnable {
     @Override
     public void run() {
-        Person[] board = registerPerson();
+        MyScanner scanner = new MyScanner(System.in);
+        Person[] board = registerPerson(scanner);
         displayPersonOver50years(board);
+        requestPerson(board,scanner);
+        scanner.close();
     }
 
-    public Person[] registerPerson() {
-        MyScanner scanner = new MyScanner(System.in);
-
+    public Person[] registerPerson(MyScanner scanner) {
         int number = scanner.returnInt("Combien y a-t-il de personnes?");
         Person[] board = new Person[number];
 
@@ -32,7 +34,6 @@ public class Exercise9 implements Runnable {
             --i;
             board[i] = new Person(age, firstname, lastname, animal);
         }
-        scanner.close();
         return board;
     }
 
@@ -60,6 +61,22 @@ public class Exercise9 implements Runnable {
             }
         }
         System.out.println("Il y a " + numberOfPersonOver50years + " personnes de plus de 50 ans et " + (board.length - numberOfPersonOver50years) + " de moins de 50 ans.");
+    }
+
+    public void requestPerson(Person[] board, MyScanner scanner) {
+        String name = scanner.returnString("Quel nom cherchez-vous ?");
+        for (Person person : board) {
+            if (person.lastname.equalsIgnoreCase(name)) {
+                displayPerson(person);
+            }
+        }
+    }
+
+    public void displayPerson (Person person){
+        System.out.println("Le nom de la personne est "+person.lastname+". ");
+        if (person.animal != null){
+            System.out.print("Le nom de son animal est "+person.animal.name);
+        }
     }
 }
 
