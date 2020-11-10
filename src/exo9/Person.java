@@ -1,9 +1,9 @@
 package exo9;
 
-public class Person {
+public class Person implements Cloneable {
     final int age;
     final String firstname;
-    private String lastname;
+    final String lastname;
     final Animal animal;
 
     Person(int age, String firstname, String lastname, Animal animal) {
@@ -12,13 +12,7 @@ public class Person {
         this.lastname = lastname;
         this.animal = animal;
     }
-
-    public String setLastname(String lastname) {
-        this.lastname = lastname;
-        return this.lastname;
-    }
-
-    public String getLastname(){
-        return lastname;
+    public Person cloneWithName(String name){
+        return new Person(age, firstname, name, animal);
     }
 }

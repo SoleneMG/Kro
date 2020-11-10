@@ -17,8 +17,10 @@ public class Exercise9 implements Runnable {
         Person person = requestPerson(board, scanner);
         displayPerson(person);
         person = requestPerson(board, scanner);
-        changeLastName(person, scanner);
-        displayNewNameOfPerson(person);
+        Person newPerson = changeLastName(person, scanner);
+        browseAndModifyValuesOfBoard(board, person, newPerson);
+        displayNewNameOfPerson(newPerson);
+
 
         scanner.close();
     }
@@ -30,7 +32,7 @@ public class Exercise9 implements Runnable {
         for (int i = 0; i < number; i++) {
             Animal animal = null;
 
-            int age = scanner.returnInt("Personne n°" + (i+1) + ", veuillez indiquez votre âge :");
+            int age = scanner.returnInt("Personne n°" + (i + 1) + ", veuillez indiquez votre âge :");
             String firstname = scanner.returnString("Veuillez indiquez votre prénom :");
             String lastname = scanner.returnString("Veuillez indiquez votre nom :");
             boolean haveAnAnimal = scanner.returnBoolean("Avez-vous un animal de compagnie ?");
@@ -71,35 +73,43 @@ public class Exercise9 implements Runnable {
     public Person requestPerson(Person[] board, MyScanner scanner) {
         String name = scanner.returnString("Quel nom cherchez-vous ?");
         for (Person person : board) {
-            if (person.getLastname().equalsIgnoreCase(name)) return person;
+            if (person.lastname.equalsIgnoreCase(name)) return person;
         }
         return null;
     }
 
     public void displayPerson(Person person) {
         if (person != null) {
-            System.out.println("Le nom de la personne est " + person.getLastname() + ". ");
+            System.out.println("Le nom de la personne est " + person.lastname + ". ");
             if (person.animal != null) {
-                System.out.print("Le nom de son animal est " + person.animal.name);
+                System.out.println("Le nom de son animal est " + person.animal.name);
             }
         } else {
             System.out.println("Le nom recherché n'est pas dans la liste.");
         }
     }
 
-    public Person changeLastName(Person person, MyScanner scanner){
+    public Person changeLastName(Person person, MyScanner scanner) {
         boolean answer = scanner.returnBoolean("Souhaitez-vous changer le nom de famille de cette personne ?");
-        if(answer){
+        if (answer) {
             String newName = scanner.returnString("Veuillez choisir le nouveau nom :");
-            person.setLastname(newName);
-            return person;
+            return person.cloneWithName(newName);
         }
         System.out.println("Le nom de la personne reste inchangé.");
-    return person;
+        return person;
     }
 
-    public void displayNewNameOfPerson(Person person){
-        System.out.println("le nom de la personne est "+person.getLastname());
+    public void displayNewNameOfPerson(Person person) {
+        System.out.println("le nom de la personne est " + person.lastname);
+    }
+
+    public void browseAndModifyValuesOfBoard(Person[] board, Person personToModify, Person newPerson) {
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == personToModify) {
+                board[i] = newPerson;
+                break;
+            }
+        }
     }
 }
 
