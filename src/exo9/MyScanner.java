@@ -9,7 +9,7 @@ public class MyScanner {
     int answerInt;
 
     public MyScanner(InputStream in) {
-        scan = new Scanner(System.in);
+        scan = new Scanner(in);
     }
 
     public String returnString(String question) {

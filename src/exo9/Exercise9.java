@@ -8,32 +8,29 @@ package exo9;
 public class Exercise9 implements Runnable {
     @Override
     public void run() {
-        boardOfPerson();
+        calculateAgeOfTheGroup(registerPerson());
     }
 
-    public void boardOfPerson() {
-        int i;
+    public Person[] registerPerson() {
         int number;
-        int age;
-        String firstname;
-        String lastname;
         MyScanner scanner = new MyScanner(System.in);
 
         number = scanner.returnInt("Combien y a-t-il de personnes?");
         Person[] board = new Person[number];
 
-        for (i = 0; i < number; i++) {
-            age = scanner.returnInt("Personne n°" + ++i + ", veuillez indiquez votre âge :");
-            firstname = scanner.returnString("Veuillez indiquez votre prénom :");
-            lastname = scanner.returnString("Veuillez indiquez votre nom :");
+        for (int i = 0; i < number; i++) {
+            int age = scanner.returnInt("Personne n°" + ++i + ", veuillez indiquez votre âge :");
+            String firstname = scanner.returnString("Veuillez indiquez votre prénom :");
+            String lastname = scanner.returnString("Veuillez indiquez votre nom :");
             --i;
             board[i] = new Person(age, firstname, lastname);
         }
         scanner.close();
-        calculateAgeOfTheGroup(board, number);
+        return board;
+
     }
 
-    public void calculateAgeOfTheGroup(Person[] board, int number) {
+    public void calculateAgeOfTheGroup(Person[] board) {
         int numberOfPersonOver50years = 0;
 
         for (Person person : board) {
@@ -42,6 +39,6 @@ public class Exercise9 implements Runnable {
                 numberOfPersonOver50years++;
             }
         }
-        System.out.println("Il y a " + numberOfPersonOver50years + " personnes de plus de 50 ans et " + (number - numberOfPersonOver50years) + " de moins de 50 ans.");
+        System.out.println("Il y a " + numberOfPersonOver50years + " personnes de plus de 50 ans et " + (board.length - numberOfPersonOver50years) + " de moins de 50 ans.");
     }
 }
