@@ -1,6 +1,6 @@
 package exo9;
 
-public class Dog {
+public class Dog extends Animal {
     final String name;
 
     public Dog(String name) {
