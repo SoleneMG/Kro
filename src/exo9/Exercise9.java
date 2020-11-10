@@ -6,6 +6,7 @@ package exo9;
  * afficher il y a X personnes de moins de 50 ans et X de plus de 50 ans
  * pour chaques personnes enregistrées, tu demandes en plus si ils ont un animal chat ou chien (avec nom). Ils ne peuvent avoir qu'un animal
  * le programme demande un nom de personne si cette personne est dans la liste il affiche son nom et son animal si i y en a un
+ * cherche une personne et en modifie le nom (séparer la méthode de recherche et la méthode d'affichage)
  */
 public class Exercise9 implements Runnable {
     @Override
@@ -13,7 +14,12 @@ public class Exercise9 implements Runnable {
         MyScanner scanner = new MyScanner(System.in);
         Person[] board = registerPerson(scanner);
         displayPersonOver50years(board);
-        requestPerson(board,scanner);
+        Person person = requestPerson(board, scanner);
+        displayPerson(person);
+        person = requestPerson(board, scanner);
+        changeLastName(person, scanner);
+        displayNewNameOfPerson(person);
+
         scanner.close();
     }
 
@@ -24,14 +30,13 @@ public class Exercise9 implements Runnable {
         for (int i = 0; i < number; i++) {
             Animal animal = null;
 
-            int age = scanner.returnInt("Personne n°" + ++i + ", veuillez indiquez votre âge :");
+            int age = scanner.returnInt("Personne n°" + (i+1) + ", veuillez indiquez votre âge :");
             String firstname = scanner.returnString("Veuillez indiquez votre prénom :");
             String lastname = scanner.returnString("Veuillez indiquez votre nom :");
             boolean haveAnAnimal = scanner.returnBoolean("Avez-vous un animal de compagnie ?");
             if (haveAnAnimal) {
                 animal = registerAnimal(scanner);
             }
-            --i;
             board[i] = new Person(age, firstname, lastname, animal);
         }
         return board;
@@ -63,20 +68,38 @@ public class Exercise9 implements Runnable {
         System.out.println("Il y a " + numberOfPersonOver50years + " personnes de plus de 50 ans et " + (board.length - numberOfPersonOver50years) + " de moins de 50 ans.");
     }
 
-    public void requestPerson(Person[] board, MyScanner scanner) {
+    public Person requestPerson(Person[] board, MyScanner scanner) {
         String name = scanner.returnString("Quel nom cherchez-vous ?");
         for (Person person : board) {
-            if (person.lastname.equalsIgnoreCase(name)) {
-                displayPerson(person);
+            if (person.getLastname().equalsIgnoreCase(name)) return person;
+        }
+        return null;
+    }
+
+    public void displayPerson(Person person) {
+        if (person != null) {
+            System.out.println("Le nom de la personne est " + person.getLastname() + ". ");
+            if (person.animal != null) {
+                System.out.print("Le nom de son animal est " + person.animal.name);
             }
+        } else {
+            System.out.println("Le nom recherché n'est pas dans la liste.");
         }
     }
 
-    public void displayPerson (Person person){
-        System.out.println("Le nom de la personne est "+person.lastname+". ");
-        if (person.animal != null){
-            System.out.print("Le nom de son animal est "+person.animal.name);
+    public Person changeLastName(Person person, MyScanner scanner){
+        boolean answer = scanner.returnBoolean("Souhaitez-vous changer le nom de famille de cette personne ?");
+        if(answer){
+            String newName = scanner.returnString("Veuillez choisir le nouveau nom :");
+            person.setLastname(newName);
+            return person;
         }
+        System.out.println("Le nom de la personne reste inchangé.");
+    return person;
+    }
+
+    public void displayNewNameOfPerson(Person person){
+        System.out.println("le nom de la personne est "+person.getLastname());
     }
 }
 
