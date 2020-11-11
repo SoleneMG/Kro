@@ -7,13 +7,14 @@ import exo6.Exercise6;
 import exo7.Exercise7;
 import exo8.Exercise8;
 import exo9.Exercise9;
+import exo10.Exercice10;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int exerciseToLaunch = 9;
+        int exerciseToLaunch = 10;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch - 1).run();
     }
@@ -28,7 +29,8 @@ public class Main {
                 new Exercise6(),
                 new Exercise7(),
                 new Exercise8(),
-                new Exercise9()
+                new Exercise9(),
+                new Exercice10()
         );
     }
 }

@@ -22,6 +22,13 @@ public class MyScanner {
         return answerInt;
     }
 
+    public double returnDouble(String question) {
+        System.out.println(question);
+        double answerDouble = scan.nextDouble();
+        scan.nextLine();
+        return answerDouble;
+    }
+
     public boolean returnBoolean(String question) {
         System.out.println(question);
         String answer = scan.nextLine();
