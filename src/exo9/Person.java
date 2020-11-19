@@ -12,7 +12,8 @@ public class Person implements Cloneable {
         this.lastname = lastname;
         this.animal = animal;
     }
-    public Person cloneWithName(String name){
+
+    public Person cloneWithName(String name) {
         return new Person(age, firstname, name, animal);
     }
 }

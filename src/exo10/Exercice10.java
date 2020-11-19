@@ -77,8 +77,8 @@ public class Exercice10 implements Runnable {
         int answerForm1 = scanner.returnInt("Veuillez séléctionner la première forme à comparer :");
         if (answerForm1 <= board.length) {
             int answerForm2 = scanner.returnInt("Veuillez séléctionner la deuxième forme à comparer :");
-            if(CompareForm.formCanContains(board[answerForm1], board[answerForm2])){
-            System.out.println("La deuxième forme peut contenir la première.");
+            if (CompareForm.formCanContains(board[answerForm1], board[answerForm2])) {
+                System.out.println("La deuxième forme peut contenir la première.");
             } else System.out.println("La deuxième forme ne peut pas contenir la première.");
         } else System.out.println("La forme n'est pas dans le tableau.");
     }

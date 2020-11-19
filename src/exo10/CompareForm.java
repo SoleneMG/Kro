@@ -2,35 +2,35 @@ package exo10;
 
 public abstract class CompareForm {
 
-    public static boolean formCanContains(Form form, Form container){
-        if (form instanceof Circle && container instanceof Square){
-            return formCanContains((Circle)form, (Square) container);
+    public static boolean formCanContains(Form form, Form container) {
+        if (form instanceof Circle && container instanceof Square) {
+            return formCanContains((Circle) form, (Square) container);
         }
-        if (form instanceof Circle && container instanceof Rectangle){
-            return formCanContains((Circle)form, (Rectangle) container);
+        if (form instanceof Circle && container instanceof Rectangle) {
+            return formCanContains((Circle) form, (Rectangle) container);
         }
-        if (form instanceof Circle && container instanceof Circle){
-            return formCanContains((Circle)form, (Circle) container);
+        if (form instanceof Circle && container instanceof Circle) {
+            return formCanContains((Circle) form, (Circle) container);
         }
-        if (form instanceof Square && container instanceof Square){
+        if (form instanceof Square && container instanceof Square) {
             return formCanContains((Square) form, (Square) container);
         }
-        if (form instanceof Square && container instanceof Rectangle){
+        if (form instanceof Square && container instanceof Rectangle) {
             return formCanContains((Square) form, (Rectangle) container);
         }
-        if (form instanceof Square && container instanceof Circle){
+        if (form instanceof Square && container instanceof Circle) {
             return formCanContains((Square) form, (Circle) container);
         }
-        if (form instanceof Rectangle && container instanceof Square){
+        if (form instanceof Rectangle && container instanceof Square) {
             return formCanContains((Rectangle) form, (Square) container);
         }
-        if (form instanceof Rectangle && container instanceof Circle){
+        if (form instanceof Rectangle && container instanceof Circle) {
             return formCanContains((Rectangle) form, (Circle) container);
         }
-        if (form instanceof Rectangle && container instanceof Rectangle){
+        if (form instanceof Rectangle && container instanceof Rectangle) {
             return formCanContains((Rectangle) form, (Rectangle) container);
         }
-    return false;
+        return false;
     }
 
     private static boolean formCanContains(Circle circle, Square container) {
