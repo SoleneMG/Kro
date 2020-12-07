@@ -22,6 +22,13 @@ public class MyScanner {
         return answerInt;
     }
 
+    public float returnFloat(String question) {
+        System.out.println(question);
+        float answerFloat = scan.nextFloat();
+        scan.nextLine();
+        return answerFloat;
+    }
+
     public double returnDouble(String question) {
         System.out.println(question);
         double answerDouble = scan.nextDouble();
