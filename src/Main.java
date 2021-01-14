@@ -16,13 +16,15 @@ import exo15.Exercice15;
 import exo16.Exercice16;
 import exo17.Exercice17;
 import exo18.Exercice18;
+import exo19.Exercice19;
+import exo20.Exercice20;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int exerciseToLaunch = 18;
+        int exerciseToLaunch = 20;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch - 1).run();
     }
@@ -46,7 +48,9 @@ public class Main {
                 new Exercice15(),
                 new Exercice16(),
                 new Exercice17(),
-                new Exercice18()
+                new Exercice18(),
+                new Exercice19(),
+                new Exercice20()
         );
     }
 }
