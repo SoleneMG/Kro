@@ -1,4 +1,4 @@
-package Kro.exo22.domain;
+package exo22.domain;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

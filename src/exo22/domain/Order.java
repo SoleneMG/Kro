@@ -1,4 +1,4 @@
-package Kro.exo22.domain;
+package exo22.domain;
 
 import exo22.models.Dish;
 import exo22.models.Drink;

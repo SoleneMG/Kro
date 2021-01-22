@@ -1,8 +1,8 @@
 package exo22;
 
-import Kro.exo22.domain.RegisterOrderInFile;
+import exo22.domain.RegisterOrderInFile;
 import exo22.models.Menu;
-import Kro.exo22.domain.Order;
+import exo22.domain.Order;
 
 import java.util.List;
 
