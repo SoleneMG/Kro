@@ -67,5 +67,22 @@ public class Exercice20 implements Runnable {
             }
         }
     }
+
+    public static void close(FileReader fileReader){
+        try {
+            fileReader.close();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+    public static void close(BufferedReader bufferedReader){
+        try {
+            bufferedReader.close();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
 }
 

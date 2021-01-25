@@ -1,8 +1,11 @@
+package main;
+
 import exo1.Exercise1;
 import exo10.Exercice10;
 import exo11.Exercice11;
 import exo12.Exercice12;
 import exo2.Exercise2;
+import exo21.Exercice21;
 import exo3.Exercise3;
 import exo4.Exercise4;
 import exo5.Exercise5;
@@ -18,13 +21,14 @@ import exo17.Exercice17;
 import exo18.Exercice18;
 import exo19.Exercice19;
 import exo20.Exercice20;
+import exo22.Exercice22;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int exerciseToLaunch = 20;
+        int exerciseToLaunch = 22;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch - 1).run();
     }
@@ -50,7 +54,9 @@ public class Main {
                 new Exercice17(),
                 new Exercice18(),
                 new Exercice19(),
-                new Exercice20()
+                new Exercice20(),
+                new Exercice21(),
+                new Exercice22()
         );
     }
 }

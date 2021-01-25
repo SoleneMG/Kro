@@ -4,6 +4,7 @@ import exo22.domain.RegisterOrderInFile;
 import exo22.models.Menu;
 import exo22.domain.Order;
 
+
 import java.util.List;
 
 public class Exercice22 implements Runnable {
@@ -24,5 +25,6 @@ public class Exercice22 implements Runnable {
         RegisterOrderInFile registerOrderInFile = new RegisterOrderInFile();
         registerOrderInFile.write("./orderMenu", menu);
     }
+
 }
 
