@@ -3,9 +3,12 @@ package exo22.domain;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class RegisterOrderInFile {
-        int writeCall = 1;
+    private int writeCall = 1;
+    private static final Logger LOGGER = Logger.getLogger(RegisterOrderInFile.class.getPackage().getName());
     /*
      public File createnewFile(String pathname, MyScanner sc) {
          File orderMenu = new File(pathname);
@@ -27,11 +30,14 @@ public class RegisterOrderInFile {
     */
 
     public void write(String pathName, StringBuilder menu) {
+        Object[] data = {writeCall};
+        LOGGER.log(Level.INFO, "(avant) writeCall = {0}", data);
         try {
             FileWriter fileWriter = new FileWriter(pathName, true);
             BufferedWriter writeOutput = new BufferedWriter(fileWriter);
             writeOutput.write("Commande n°" + writeCall + " : ");
             writeCall++;
+            LOGGER.log(Level.INFO, "(après) writeCall = {0}", data);
             writeOutput.write(String.valueOf(menu));
             writeOutput.flush();
             writeOutput.close();

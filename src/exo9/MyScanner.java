@@ -1,6 +1,7 @@
 package exo9;
 
 import java.io.InputStream;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyScanner {
@@ -16,10 +17,16 @@ public class MyScanner {
     }
 
     public int returnInt(String question) {
-        System.out.println(question);
-        int answerInt = scan.nextInt();
-        scan.nextLine();
-        return answerInt;
+        try {
+            System.out.println(question);
+            int answerInt = scan.nextInt();
+            scan.nextLine();
+            return answerInt;
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("Erreur lors de la saisie, veuillez recommencer : ");
+            scan.nextLine();
+            return returnInt(question);
+        }
     }
 
     public float returnFloat(String question) {

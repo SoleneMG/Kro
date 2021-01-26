@@ -41,7 +41,5 @@ public class Exercice21 implements Runnable {
             Exercice20.close(fileReader);
             Exercice20.close(bufferedReader);
         }
-
-
     }
 }
