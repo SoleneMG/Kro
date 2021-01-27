@@ -22,6 +22,7 @@ import exo6.Exercise6;
 import exo7.Exercise7;
 import exo8.Exercise8;
 import exo9.Exercise9;
+import exo23.Exercice23;
 
 
 import java.io.FileInputStream;
@@ -42,7 +43,7 @@ public class Main {
     }
     public static void main(String[] args) {
         LOGGER.log(Level.INFO, "Logger initialisé");
-        int exerciseToLaunch = 22;
+        int exerciseToLaunch = 23;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch - 1).run();
     }
@@ -70,7 +71,8 @@ public class Main {
                 new Exercice19(),
                 new Exercice20(),
                 new Exercice21(),
-                new Exercice22()
+                new Exercice22(),
+                new Exercice23()
         );
     }
 }

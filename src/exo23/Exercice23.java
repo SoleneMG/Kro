@@ -1,6 +1,9 @@
 package exo23;
 
-public class Exercice23 {
+import exo23.domain.RegisterChildren;
+import exo9.MyScanner;
+
+public class Exercice23 implements Runnable{
     /* gestionnaire de crèche
     voulez vous enregistrer ou voir la liste des enfants ?
     LISTE
@@ -14,5 +17,11 @@ public class Exercice23 {
     Fichier de LOGS qui ne renseigne que les 10 premières lignes
     Log à chaques étapes
      */
+    @Override
+    public void run() {
+        MyScanner sc = new MyScanner(System.in);
+        RegisterChildren registerChildren = new RegisterChildren();
+        registerChildren.registerchild(sc);
+    }
 
 }

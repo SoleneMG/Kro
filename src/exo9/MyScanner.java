@@ -1,6 +1,9 @@
 package exo9;
 
+import exo23.utils.Date;
+
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -47,6 +50,13 @@ public class MyScanner {
         System.out.println(question);
         String answer = scan.nextLine();
         return answer.equalsIgnoreCase("oui");
+    }
+
+    public LocalDate returnDate(String question){
+        System.out.println(question);
+        String answer = scan.nextLine();
+        Date date = new Date();
+        return date.switchStringtoLocalDate(answer);
     }
 
     public void close() {
