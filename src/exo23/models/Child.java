@@ -1,10 +1,11 @@
 package exo23.models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
-public class Child {
+public class Child implements Serializable {
     final String name;
     final String firstName;
     final LocalDate birthDate;

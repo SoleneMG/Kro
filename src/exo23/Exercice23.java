@@ -1,9 +1,14 @@
 package exo23;
 
-import exo23.domain.RegisterChildren;
+import exo23.domain.Register;
+import exo23.domain.WriteInFile;
+import exo23.models.Child;
 import exo9.MyScanner;
 
-public class Exercice23 implements Runnable{
+import java.io.IOException;
+import java.util.List;
+
+public class Exercice23 implements Runnable {
     /* gestionnaire de crèche
     voulez vous enregistrer ou voir la liste des enfants ?
     LISTE
@@ -20,8 +25,16 @@ public class Exercice23 implements Runnable{
     @Override
     public void run() {
         MyScanner sc = new MyScanner(System.in);
-        RegisterChildren registerChildren = new RegisterChildren();
-        registerChildren.registerchild(sc);
+        Register register = new Register();
+        WriteInFile writeInFile = new WriteInFile();
+
+
+        List<Child> childrenList = register.children(sc);
+        try {
+            writeInFile.children("./creche.txt", childrenList);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 package exo9;
 
-import exo23.utils.Date;
+import exo23.utils.DateUtils;
 
 import java.io.InputStream;
 import java.time.LocalDate;
@@ -55,8 +55,7 @@ public class MyScanner {
     public LocalDate returnDate(String question){
         System.out.println(question);
         String answer = scan.nextLine();
-        Date date = new Date();
-        return date.switchStringtoLocalDate(answer);
+        return DateUtils.switchStringtoLocalDate(answer);
     }
 
     public void close() {

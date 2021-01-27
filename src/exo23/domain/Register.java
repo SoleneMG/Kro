@@ -7,10 +7,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegisterChildren {
+public class Register {
 
-    public void registerchild(MyScanner sc){
-        boolean restart = false;
+    public List<Child> children(MyScanner sc){
+        boolean restart;
+        List<Child> childrenList = new ArrayList<>();
+
         do{
             String name = sc.returnString("Nom de l'enfant :");
             String firstName = sc.returnString("Prénom de l'enfant :");
@@ -18,14 +20,14 @@ public class RegisterChildren {
             Child child = new Child(name, firstName, birthDay);
             System.out.println("Vous avez saisi les informations suivantes : ");
             System.out.println(child.describeYourSelf());
-            boolean isAdd = sc.returnBoolean("Voulez-vous enregistrer "+firstName+" "+name+" ?");
-            if (isAdd){
-                List<Child> childrenList = new ArrayList<>();
+            boolean shouldRegisterNext = sc.returnBoolean("Voulez-vous enregistrer "+firstName+" "+name+" ? \n - oui \n - non");
+            if (shouldRegisterNext){
                 childrenList.add(child);
             } else {
                 System.out.println(firstName+ " " +name+"n'a pas été enregistré");
             }
            restart = sc.returnBoolean("Souhaitez-vous enregistrer un autre enfant ? \n - oui \n - non");
         } while (restart);
+        return childrenList;
     }
 }
