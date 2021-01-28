@@ -1,14 +1,17 @@
 package exo23;
 
+import exo23.domain.ReadFile;
 import exo23.domain.Register;
 import exo23.domain.WriteInFile;
 import exo23.models.Child;
 import exo9.MyScanner;
 
-import java.io.IOException;
+import java.util.logging.*;
+
 import java.util.List;
 
 public class Exercice23 implements Runnable {
+    private static final Logger LOGGER = Logger.getLogger(Exercice23.class.getPackage().getName());
     /* gestionnaire de crèche
     voulez vous enregistrer ou voir la liste des enfants ?
     LISTE
@@ -27,13 +30,16 @@ public class Exercice23 implements Runnable {
         MyScanner sc = new MyScanner(System.in);
         Register register = new Register();
         WriteInFile writeInFile = new WriteInFile();
+        ReadFile readFile = new ReadFile();
 
-
-        List<Child> childrenList = register.children(sc);
-        try {
+        int whatDoYouDo = sc.returnInt("Que voulez-vous faire ? \n 1 - enregistrer un nouvel enfant \n 2 - consulter la liste des enfants enregistrés");
+        if (whatDoYouDo == 1) {
+            List<Child> childrenList = register.children(sc);
+            if(readFile.returnChildrenList("./creche.txt") != null){
+            childrenList.addAll(readFile.returnChildrenList("./creche.txt"));}
             writeInFile.children("./creche.txt", childrenList);
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
+        } else {
+            readFile.displayChildrenList(readFile.returnChildrenList("./creche.txt"));
         }
     }
 

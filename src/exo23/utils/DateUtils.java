@@ -7,7 +7,7 @@ import java.util.Locale;
 
 public class DateUtils {
 
-    final static DateTimeFormatter dateTimeFormatter= DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private final static DateTimeFormatter dateTimeFormatter= DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public static LocalDate switchStringtoLocalDate(String date)  {
         return LocalDate.parse(date, dateTimeFormatter);
