@@ -1,6 +1,7 @@
 package exo23.domain;
 
 import exo23.models.Child;
+import exo23.utils.LogsUtils;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,7 +12,8 @@ import java.util.logging.Logger;
 import static exo23.utils.StreamUtils.close;
 
 public class ReadFile {
-    private static final Logger LOGGER = Logger.getLogger(ReadFile.class.getPackage().getName());
+    String className = ReadFile.class.getPackage().getName();
+    Logger LOGGER = LogsUtils.getLogger(className);
 
     public List<Child> returnChildrenList(String pathName) {
         FileInputStream fileInputStream = null;

@@ -4,7 +4,9 @@ import exo23.utils.DateUtils;
 
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.InputMismatchException;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class MyScanner {
@@ -52,10 +54,17 @@ public class MyScanner {
         return answer.equalsIgnoreCase("oui");
     }
 
-    public LocalDate returnDate(String question){
+    public LocalDate returnLocalDate(String question) {
         System.out.println(question);
         String answer = scan.nextLine();
         return DateUtils.switchStringtoLocalDate(answer);
+    }
+
+    public Optional<Date> returnOptionalDate(String question) {
+        System.out.println(question);
+        String answer = scan.nextLine();
+        Optional<Date> optionalDate = DateUtils.switchStringtoOptionalDate(answer);
+        return optionalDate;
     }
 
     public void close() {

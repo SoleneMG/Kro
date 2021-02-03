@@ -1,6 +1,8 @@
 package exo23.models;
 
 
+import exo23.domain.WriteInFile;
+import exo23.utils.LogsUtils;
 import main.Main;
 
 import java.io.Serializable;
@@ -11,7 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Child implements Serializable {
-    private static final Logger LOGGER = Logger.getLogger(Child.class.getPackage().getName());
+    String className = Child.class.getPackage().getName();
+    Logger LOGGER = LogsUtils.getLogger(className);
     private static final long serialVersionUID = 1L;
     final String name;
     final String firstName;
@@ -21,7 +24,7 @@ public class Child implements Serializable {
         this.name = name;
         this.firstName = firstName;
         this.birthDate = birthDate;
-        LOGGER.log(Level.INFO, this.name+"créé");
+        LOGGER.log(Level.INFO, this.firstName+" "+this.name+" créé");
     }
 
     public String describeYourSelfWithBirthDate(){

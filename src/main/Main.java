@@ -15,6 +15,8 @@ import exo2.Exercise2;
 import exo20.Exercice20;
 import exo21.Exercice21;
 import exo22.Exercice22;
+import exo23.utils.LogsUtils;
+import exo24.Exercice24;
 import exo3.Exercise3;
 import exo4.Exercise4;
 import exo5.Exercise5;
@@ -23,27 +25,19 @@ import exo7.Exercise7;
 import exo8.Exercise8;
 import exo9.Exercise9;
 import exo23.Exercice23;
+import exo24.Exercice24;
 
-
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.*;
 
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 public class Main {
-    private static final LogManager LOG_MANAGER = LogManager.getLogManager();
-    private static final Logger LOGGER = Logger.getLogger(Main.class.getPackage().getName());
-    static {
-        try {
-            LOG_MANAGER.readConfiguration(new FileInputStream("logs.properties"));
-        } catch (IOException ioException) {
-            LOGGER.log(Level.SEVERE, "Erreur de configuration du LOGGER", ioException);
-        }
-    }
+
     public static void main(String[] args) {
-        LOGGER.log(Level.INFO, "Logger initialisé");
-        int exerciseToLaunch = 23;
+        //LOGGER.log(Level.INFO, "Logger initialisé");
+        int exerciseToLaunch = 24;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch - 1).run();
     }
@@ -72,7 +66,8 @@ public class Main {
                 new Exercice20(),
                 new Exercice21(),
                 new Exercice22(),
-                new Exercice23()
+                new Exercice23(),
+                new Exercice24()
         );
     }
 }

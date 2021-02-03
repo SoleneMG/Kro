@@ -5,8 +5,9 @@ import java.io.Flushable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 public class StreamUtils {
-    private static final Logger LOGGER = Logger.getLogger(StreamUtils.class.getPackage().getName());
 
     public static void close(Closeable closeable) {
         if (closeable != null) {

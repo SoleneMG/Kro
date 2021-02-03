@@ -1,6 +1,7 @@
 package exo23.domain;
 
 import exo23.models.Child;
+import exo23.utils.LogsUtils;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,8 +15,8 @@ import static exo23.utils.StreamUtils.close;
 import static exo23.utils.StreamUtils.flush;
 
 public class WriteInFile {
-    private static final Logger LOGGER = Logger.getLogger(WriteInFile.class.getPackage().getName());
-
+    String className = WriteInFile.class.getPackage().getName();
+    Logger LOGGER = LogsUtils.getLogger(className);
     public void children(String pathName, List<Child> childrenList) {
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
@@ -24,7 +25,7 @@ public class WriteInFile {
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(childrenList);
         } catch (FileNotFoundException fileNotFoundException) {
-            LOGGER.log(Level.INFO, "File not found");
+            LOGGER.log(Level.INFO,"Fichier non trouvé");
         } catch (IOException ioException) {
             LOGGER.log(Level.INFO, "IOException");
         } catch (Exception exception) {
