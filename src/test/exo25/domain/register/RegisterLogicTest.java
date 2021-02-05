@@ -7,23 +7,23 @@ import main.exo25.domain.register.RegisterPersonResult;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static main.exo25.domain.register.RegisterPersonResult.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 class RegisterLogicTest {
-     Database database = Mockito.mock(Database.class);
-    private final RegisterLogic registerLogic = new RegisterLogic(database);
-
-    @Before
-    void beforeAll() {
-        MockitoAnnotations.initMocks(this);
-    }
+    @Mock Database mockDatabase;
+    @InjectMocks RegisterLogic registerLogic;
 
     @Test
     void test_addPerson_success() {
@@ -36,7 +36,7 @@ class RegisterLogicTest {
         RegisterPersonResult result = registerLogic.addPerson(lastName, firstName, age);
 
         //Then
-        assertEquals(RegisterPersonResult.SUCCESS, result);
+        assertEquals(SUCCESS, result);
     }
 
     @Test
@@ -50,7 +50,7 @@ class RegisterLogicTest {
         RegisterPersonResult result = registerLogic.addPerson(lastName, firstName, age);
 
         //Then
-        assertEquals(RegisterPersonResult.TOO_OLD, result);
+        assertEquals(TOO_OLD, result);
     }
 
     @Test
@@ -59,12 +59,12 @@ class RegisterLogicTest {
         String lastName = "l";
         String firstName = "ll";
         int age = 69;
-        Mockito.when(database.exist(lastName,firstName)).thenReturn(true);
+        when(mockDatabase.exist(lastName,firstName)).thenReturn(true);
 
         //When
         RegisterPersonResult result = registerLogic.addPerson(lastName, firstName, age);
 
         //Then
-        assertEquals(RegisterPersonResult.ALREADY_EXIST, result);
+        assertEquals(ALREADY_EXIST, result);
     }
 }
