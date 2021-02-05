@@ -1,43 +1,39 @@
 package main;
 
-import exo1.Exercise1;
-import exo10.Exercice10;
-import exo11.Exercice11;
-import exo12.Exercice12;
-import exo13.Exercice13;
-import exo14.Exercice14;
-import exo15.Exercice15;
-import exo16.Exercice16;
-import exo17.Exercice17;
-import exo18.Exercice18;
-import exo19.Exercice19;
-import exo2.Exercise2;
-import exo20.Exercice20;
-import exo21.Exercice21;
-import exo22.Exercice22;
-import exo23.utils.LogsUtils;
-import exo24.Exercice24;
-import exo3.Exercise3;
-import exo4.Exercise4;
-import exo5.Exercise5;
-import exo6.Exercise6;
-import exo7.Exercise7;
-import exo8.Exercise8;
-import exo9.Exercise9;
-import exo23.Exercice23;
-import exo24.Exercice24;
+import main.exo1.Exercise1;
+import main.exo10.Exercice10;
+import main.exo11.Exercice11;
+import main.exo12.Exercice12;
+import main.exo13.Exercice13;
+import main.exo14.Exercice14;
+import main.exo15.Exercice15;
+import main.exo16.Exercice16;
+import main.exo17.Exercice17;
+import main.exo18.Exercice18;
+import main.exo19.Exercice19;
+import main.exo2.Exercise2;
+import main.exo20.Exercice20;
+import main.exo21.Exercice21;
+import main.exo22.Exercice22;
+import main.exo25.Exercice25;
+import main.exo3.Exercise3;
+import main.exo4.Exercise4;
+import main.exo5.Exercise5;
+import main.exo6.Exercise6;
+import main.exo7.Exercise7;
+import main.exo8.Exercise8;
+import main.exo9.Exercise9;
+import main.exo23.Exercice23;
+import main.exo24.Exercice24;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.*;
-
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 public class Main {
 
     public static void main(String[] args) {
         //LOGGER.log(Level.INFO, "Logger initialisé");
-        int exerciseToLaunch = 24;
+        int exerciseToLaunch = 25;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch - 1).run();
     }
@@ -67,7 +63,8 @@ public class Main {
                 new Exercice21(),
                 new Exercice22(),
                 new Exercice23(),
-                new Exercice24()
+                new Exercice24(),
+                new Exercice25()
         );
     }
 }
