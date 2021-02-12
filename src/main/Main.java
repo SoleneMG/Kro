@@ -16,6 +16,8 @@ import main.exo20.Exercice20;
 import main.exo21.Exercice21;
 import main.exo22.Exercice22;
 import main.exo25.Exercice25;
+import main.exo26.Exercice26;
+import main.exo27.Exercice27;
 import main.exo3.Exercise3;
 import main.exo4.Exercise4;
 import main.exo5.Exercise5;
@@ -33,7 +35,7 @@ public class Main {
 
     public static void main(String[] args) {
         //LOGGER.log(Level.INFO, "Logger initialisé");
-        int exerciseToLaunch = 25;
+        int exerciseToLaunch = 27;
         List<Runnable> exercises = getExercises();
         exercises.get(exerciseToLaunch - 1).run();
     }
@@ -64,7 +66,9 @@ public class Main {
                 new Exercice22(),
                 new Exercice23(),
                 new Exercice24(),
-                new Exercice25()
+                new Exercice25(),
+                new Exercice26(),
+                new Exercice27()
         );
     }
 }
