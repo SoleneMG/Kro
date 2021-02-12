@@ -1,5 +1,6 @@
 package main.exo25.presentation;
 
+import main.exo25.Exercice25;
 import main.exo25.data.models.*;
 import main.exo25.domain.order.OrderLogic;
 import main.exo9.MyScanner;
@@ -8,7 +9,7 @@ import javafx.util.Pair;
 import java.util.List;
 
 public class OrderScreen extends Screen{
-    private final OrderLogic orderLogic = new OrderLogic();
+    private final OrderLogic orderLogic = new OrderLogic(Exercice25.database);
     public OrderScreen(ScreenManager screenManager, MyScanner myScanner) {
         super(screenManager, myScanner);
     }

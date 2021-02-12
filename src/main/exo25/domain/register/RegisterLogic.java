@@ -7,6 +7,8 @@ import main.exo25.data.models.Baby;
 import main.exo25.data.models.Child;
 import main.exo25.data.models.Person;
 
+import java.util.Arrays;
+
 public class RegisterLogic {
     private final Database database;
 
@@ -17,12 +19,17 @@ public class RegisterLogic {
     public RegisterPersonResult addPerson(String lastName, String firstName, int age){
         if(age < 0 || age > 110)
             return RegisterPersonResult.AGE_INVALID;
-
         if( age > 70)
             return RegisterPersonResult.TOO_OLD;
 
+        if(lastName == null)
+            return RegisterPersonResult.LASTNAME_EMPTY;
+
         if(lastName.isEmpty())
             return RegisterPersonResult.LASTNAME_EMPTY;
+
+        if(firstName == null)
+            return RegisterPersonResult.FIRSTNAME_EMPTY;
 
         if(firstName.isEmpty())
             return RegisterPersonResult.FIRSTNAME_EMPTY;
