@@ -1,6 +1,6 @@
 package main.exo25.domain.order;
 
-import main.exo25.Exercice25;
+import main.exo25.data.database.Database;
 import main.exo25.data.models.Person;
 import main.exo25.data.models.Price;
 import javafx.util.Pair;
@@ -9,10 +9,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OrderLogic {
+    private final Database database;
+
+    public OrderLogic(Database database) {
+        this.database = database;
+    }
 
     public List<Pair<Person, Price>> getAll() {
-        List<Price> priceList = Exercice25.database.getAllPrice();
-        List<Person> personList = Exercice25.database.getAllPerson();
+        List<Price> priceList = database.getAllPrice();
+        List<Person> personList = database.getAllPerson();
 
         return personList.stream().map(person -> (new Pair<>(person, getJustPrice(priceList,person)))).collect(Collectors.toList());
     }

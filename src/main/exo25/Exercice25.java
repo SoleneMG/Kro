@@ -6,6 +6,10 @@ import main.exo25.presentation.MenuScreen;
 import main.exo25.presentation.ScreenManager;
 import main.exo9.MyScanner;
 
+import java.util.Arrays;
+
+import static java.util.Arrays.deepToString;
+
 /**
  * enregistre une personne
  * si > 70 ans non trop vieux
@@ -23,8 +27,10 @@ public class Exercice25 implements Runnable{
 
     @Override
     public void run() {
+        //Integer[] board =new Integer[]{1, 2, 10, 5, 8};
+        //System.out.println(board);
+        //System.out.println(Arrays.deepToString(board));
         screenManager.display(new MenuScreen(screenManager,myScanner));
-
         myScanner.close();
     }
 }

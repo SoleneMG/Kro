@@ -1,70 +1,53 @@
 package test.exo25.domain.register;
 
 import main.exo25.data.database.Database;
-import main.exo25.data.database.memory.MemoryDatabase;
 import main.exo25.domain.register.RegisterLogic;
 import main.exo25.domain.register.RegisterPersonResult;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.runners.MockitoJUnitRunner;
-
+import java.util.stream.Stream;
 import static main.exo25.domain.register.RegisterPersonResult.*;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 class RegisterLogicTest {
-    @Mock Database mockDatabase;
-    @InjectMocks RegisterLogic registerLogic;
+    @Mock
+    Database mockDatabase;
+    @InjectMocks
+    RegisterLogic registerLogic;
 
-    @Test
-    void test_addPerson_success() {
+    @ParameterizedTest
+    @MethodSource("addPersonParameters")
+    void test_addPerson(String lastName, String firstName, int age, RegisterPersonResult expected){
         //Given
-        String lastName = "l";
-        String firstName = "ll";
-        int age = 2;
-
+        if (expected == ALREADY_EXIST) {
+            Mockito.when(mockDatabase.exist(lastName, firstName)).thenReturn(true);
+        }
         //When
         RegisterPersonResult result = registerLogic.addPerson(lastName, firstName, age);
-
         //Then
-        assertEquals(SUCCESS, result);
+        assertEquals(expected, result);
     }
 
-    @Test
-    void test_addPerson_tooOld() {
-        //Given
-        String lastName = "l";
-        String firstName = "ll";
-        int age = 71;
+    private static Stream<Arguments> addPersonParameters(){
+        return Stream.of(
+                Arguments.of("", "l", 18, LASTNAME_EMPTY),
+                Arguments.of(null, "l", 18, LASTNAME_EMPTY),
+                Arguments.of("ll", "", 18, FIRSTNAME_EMPTY),
+                Arguments.of("ll", null, 18, FIRSTNAME_EMPTY),
+                Arguments.of("ll", "l", 71, TOO_OLD),
+                Arguments.of("ll", "l", 118, AGE_INVALID),
+                Arguments.of("ll", "l", -1, AGE_INVALID),
+                Arguments.of("ll", "l", 18, SUCCESS),
+                Arguments.of("ll", "l", 18, ALREADY_EXIST)
 
-        //When
-        RegisterPersonResult result = registerLogic.addPerson(lastName, firstName, age);
+        );
 
-        //Then
-        assertEquals(TOO_OLD, result);
-    }
-
-    @Test
-    void test_addPerson_alreadyExist() {
-        //Given
-        String lastName = "l";
-        String firstName = "ll";
-        int age = 69;
-        when(mockDatabase.exist(lastName,firstName)).thenReturn(true);
-
-        //When
-        RegisterPersonResult result = registerLogic.addPerson(lastName, firstName, age);
-
-        //Then
-        assertEquals(ALREADY_EXIST, result);
     }
 }
